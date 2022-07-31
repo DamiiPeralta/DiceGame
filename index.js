@@ -1,111 +1,25 @@
-let player1 = document.getElementById("imagen1");
+var randomNumber1 = Math.floor(Math.random() * 6) + 1; // 1 - 6;
 
-//let player2 = document.getElementsByClassName("img2");
+var randomImageSource = "images/dice" + randomNumber1 + ".png"; // image/dice1.png - images/dice6.png
 
-let player2 = document.getElementById("imagen2");
+var image1 = document.querySelectorAll("img")[0];
 
-let result = document.querySelector("h1");
+image1.setAttribute("src", randomImageSource);
 
-let dices = ["./images/dice1.png", "./images/dice2.png", "./images/dice3.png", "./images/dice4.png", "./images/dice5.png", "./images/dice6.png"];
+var randomNumber2 = Math.floor(Math.random() * 6) + 1;
 
-function randomIntFromInterval(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-  }
-  
-const rndInt = randomIntFromInterval(1, 6);
+var randomImageSource2 = "images/dice" + randomNumber2 + ".png";
 
-const rndInt2 = randomIntFromInterval(1, 6);
+var image2 = document.querySelectorAll("img")[1];
 
-function aleaDice(){
+image2.setAttribute("src", randomImageSource2);
 
-    let first = rndInt;
-    
-    let second = rndInt2;
-
-    if (first == 1){
-
-        player1.src = dices[0];
-
-    }
-
-    if (first == 2){
-
-        player1.src = dices[1];
-
-    }
-
-    if (first == 3){
-
-        player1.src = dices[2];
-
-    }
-
-    if (first == 4){
-
-        player1.src = dices[3];
-
-    }
-
-    if (first == 5){
-
-        player1.src = dices[4];
-
-    }
-
-    if (first == 6){
-
-        player1.src = dices[5];
-
-    }
-    if (second == 1){
-
-        player2.src = dices[0];
-
-    }
-
-    if (second == 2){
-
-        player2.src = dices[1];
-
-    }
-
-    if (second == 3){
-
-        player2.src = dices[2];
-
-    }
-
-    if (second == 4){
-
-        player2.src = dices[3];
-
-    }
-
-    if (second == 5){
-
-        player2.src = dices[4];
-
-    }
-
-    if (second == 6){
-
-        player2.src = dices[5];
-
-    }
-
-    
-
-    if (first === second){
-        result.innerHTML = "Draw!!";
-        console.log("llega");
-    }else if (first < second){
-        result.innerHTML = "Player 2 Wins!!";
-        console.log("llega2");
-    }else {
-        result.innerHTML = "Player 1 Wins!!";
-        console.log("llega3");
-    }
-    
+if (randomNumber1 > randomNumber2){
+    document.querySelector("h1").innerHTML = "Player 1 Wins!";
 }
-
-aleaDice();
+else if ( randomNumber2 > randomNumber1) {
+    document.querySelector("h1").innerHTML = "Player 2 Wins!";
+}
+else {
+    document.querySelector("h1").innerHTML = "Draw!";
+}
